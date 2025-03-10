@@ -7,8 +7,15 @@
 #' the default set of connections will be used: see \code{\link{datashield.connections_default}}.
 #' @return \code{ds.funLevels} returns the levels prefixed by a fun message
 #' @author Tim Cadman
-#' @importFrom DSI datashield.aggregate
+#' @importFrom DSI datashield.aggregate datashield.connections_find
 #' @examples
+#' \dontrun{
+#' ds.funLevels(
+#'   df.name = "iris$Species",
+#'   fun_message = "This is a fun message ,",
+#'   dataources = conns
+#' )
+#' }
 #' @export
 ds.funLevels <- function(x=NULL, fun_message=NULL, datasources=NULL) {
 
@@ -31,21 +38,8 @@ ds.funLevels <- function(x=NULL, fun_message=NULL, datasources=NULL) {
 #'
 #' @param x A character vector. Must not be `NULL`.
 #' @param fun_message A character vector. Must not be `NULL`.
-#'
 #' @return This function does not return a value. It throws an error if any of the conditions are not met.
-#'
 #' @importFrom cli cli_abort
-#'
-#' @examples
-#' # Valid input
-#' .check_args("example", "This is a message")
-#'
-#' # Invalid input (NULL x)
-#' # .check_args(NULL, "This is a message")
-#'
-#' # Invalid input (x not character)
-#' # .check_args(123, "This is a message")
-#'
 .check_args <- function(x, fun_message) {
 
   if(is.null(x))  {

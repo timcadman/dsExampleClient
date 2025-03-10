@@ -1,0 +1,39 @@
+---
+title: "Getting started with ds.funLevels"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started with ds.funLevels}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(dsExampleClient)
+```
+# Introduction
+dsExampleClient is a basic R package designed to demonstrate how to build a DataSHIELD package. It is
+used in the [tutorial](https://wiki.datashield.org/en/getting-started/developer/overview) on
+the DataSHIELD wiki. It contains one function, which returns the levels of a variable and adds a
+fun message.
+
+# Example usage
+First log in to a server. Here we use a DSLite server as an example:
+```{r login}
+conns <- setupDSLite()
+```
+Now simply pass a message and the name of the server-side variable, and receive the levels along with
+a fun message!
+
+```{r example, message = F}
+  ds.funLevels(
+      x = "iris$Species",
+      fun_message = "ThisIsAFunMessage",
+      datasources = conns)
+```
