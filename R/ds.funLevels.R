@@ -24,7 +24,8 @@ ds.funLevels <- function(x=NULL, fun_message=NULL, datasources=NULL) {
   }
 
   .check_args(x, fun_message)
-  cally <- call("funLevelsDS", x, fun_message)
+  fun_message_no_spaces <- gsub(" ", "", fun_message)
+  cally <- call("funLevelsDS", x, fun_message_no_spaces)
   fun_levels <- DSI::datashield.aggregate(datasources, cally)
 
   return(fun_levels)

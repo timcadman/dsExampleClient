@@ -30,7 +30,7 @@ test_that("ds.funLevels returns the correct message", {
   expect_equal(
     ds.funLevels(
       x = "iris$Species",
-      fun_message = "ThisIsAFunMessage",
+      fun_message = "This Is A Fun Message",
       datasources = conns),
     list(server_1 = "ThisIsAFunMessage: setosa, versicolor, virginica")
   )
